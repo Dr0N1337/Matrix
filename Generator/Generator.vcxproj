@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{72d47827-af0e-45d4-b3dc-e96b70cda15c}</ProjectGuid>
-    <RootNamespace>matrix</RootNamespace>
+    <ProjectGuid>{d3eadc51-afc4-4945-b14e-ea3db0151764}</ProjectGuid>
+    <RootNamespace>Generator</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -128,15 +128,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Matrix.h" />
+    <ClCompile Include="IStreamGenerator.cpp" />
+    <ClCompile Include="RandomGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="matrix.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Generator\Generator.vcxproj">
-      <Project>{d3eadc51-afc4-4945-b14e-ea3db0151764}</Project>
-    </ProjectReference>
+    <ClInclude Include="Generator.h" />
+    <ClInclude Include="IStreamGenerator.h" />
+    <ClInclude Include="RandomGenerator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

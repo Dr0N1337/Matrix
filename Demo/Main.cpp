@@ -1,17 +1,21 @@
-﻿#include "..\matrix\Matrix.h"
+﻿#include "../Generator/Generator.h"
+#include "../Generator/IStreamGenerator.h"
+#include "../Generator/RandomGenerator.h"
+
+
+#include "../Task4/Task.h"
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-
-	size_t length;
-	size_t high;
-	std::cout << "Введите колличество строк:" << std::endl;
-	std::cin >> length;
-	std::cout << "Введите колличество столбцов:" << std::endl;
-	std::cin >> high;
-
-	matrix matrix(length, high);
-	matrix.create_matrix();
-	std::cout << matrix.print_matrix() << "\t";
+    
+	Generator* generator = new RandomGenerator(0, 10);
+	Matrix A(4, 3, generator);
+	std::cout << A<<std::endl;
+	std::cout << "---------------------------------" << std::endl;
+	Task task { A };
+	std::cout << task.Task1().to_string();
+	std::cout << "---------------------------------" << std::endl;
+	std::cout << task.Task2().to_string();
+	return 0;
 }

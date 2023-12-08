@@ -131,8 +131,14 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Generator\Generator.vcxproj">
+      <Project>{d3eadc51-afc4-4945-b14e-ea3db0151764}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\matrix\matrix.vcxproj">
       <Project>{72d47827-af0e-45d4-b3dc-e96b70cda15c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Task4\Task4.vcxproj">
+      <Project>{2de25f27-92da-4734-b4c0-a62c71a26693}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

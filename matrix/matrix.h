@@ -1,74 +1,35 @@
 ﻿#pragma once
+#include "../Generator/Generator.h"
+
 #include <vector>
-#include <sstream>
 #include <iostream>
 #include <ostream>
-#include <initializer_list>
+#include <sstream>
 
-class Row
+
+class Matrix 
 {
 public:
-	std::vector<int> row;
+	Matrix(size_t numrows, size_t numcols, Generator* generator);
 
-	int& operator[](std::size_t index);
-};
+	Matrix();
 
-int& Row::operator[](size_t index)
-{
-	return row[index];
-}
+	std::string to_string() const noexcept;
 
-class Matrix
-{
-public:
-	Matrix(std::initializer_list<int> list, int rows, size_t columns);
+	friend std::ostream& operator<<(std::ostream& os, Matrix& matrix) noexcept;
 
-	void create_matrix();
+	std::vector<int>& operator[](size_t index);
 
-	friend std::ostream& operator<< (std::ostream& os, Matrix& matrix);
+	int get_max_abs_row_element(size_t index) const;
 
-	std::string print_matrix();
+	void add_row(std::vector<int> user_data);
 
+	size_t rows_counts() const;
+
+	size_t cols_counts() const;
 
 private:
-	std::vector<Row> matrix;
+	std::vector<std::vector<int>> data;
+
 };
 
-Matrix::Matrix(std::initializer_list<int> list, int rows, size_t columns)
-{
-	std::vector<int> list1;
-	for (auto& i : list)
-	{
-		list1.push_back(i);
-	}
-
-	for (size_t i = 0; i < rows; i++)
-	{
-		Row initRow{};
-		matrix.push_back(initRow);
-		for (size_t j = 0; j < columns; j++)
-		{
-			matrix[i].row.push_back(list1[columns * i + j]);
-		}
-	}
-}
-
-std::ostream& operator<< (std::ostream& os, Matrix& matrix)
-{
-
-
-}
-
-std::string Matrix::print_matrix()
-{
-	std::stringstream buffer;
-	for (int i = 0; i < ; i++)
-	{
-		buffer << "\n";
-		for (int j = 0; j < ; j++)
-		{
-			buffer << ;
-		}
-	}
-	return buffer.str();
-}
